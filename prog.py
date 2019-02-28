@@ -4,9 +4,11 @@ from sort_by_tag_number import sort_tag
 filein = ["a_example.txt", "b_lovely_landscapes.txt", "c_memorable_moments.txt", "d_pet_pictures.txt", "e_shiny_selfies.txt"]
 fileout = ["a_example_out.txt", "b_lovely_landscapes_out.txt", "c_memorable_moments_out.txt", "d_pet_pictures_out.txt", "e_shiny_selfies_out.txt"]
 
+file_nbr = 3
 tags = []
+tagsV = []
 slides = []
-f = open(filein[1], "r")
+f = open(filein[file_nbr], "r")
 nbr = int(f.readline())
 
 for i in range(nbr) :
@@ -14,16 +16,20 @@ for i in range(nbr) :
     tag = line.split(" ")
     tag[1] = int(tag[1])
     tag[-1] = tag[-1].strip('\n')
-    tags.append([i] + tag)
+    if tag[0] == 'H':
+        tags.append([i] + tag)
+    else:
+        tagsV.append([i] + tag)
 f.close()
 
 tags = sort_tag(tags)
 
 CreaSlide(0, tags, slides)
-print(slides)
 
-f = open(fileout[1], "w")
-f.write(str(len(slides)) + '\n')
+f = open(fileout[file_nbr], "w")
+f.write(str(int(len(slides)+len(tagsV)/2)) + '\n')
 for e in slides:
     f.write(str(e) + '\n')
+for i in range(int(len(tagsV)/2)):
+    f.write(str(tagsV[2*i][0]) + " " + str(tagsV[2*i+1][0]) + '\n')
 f.close()

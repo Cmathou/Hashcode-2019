@@ -33,7 +33,7 @@ def SelectImag(identifiant, tags, slides) :
             #Calcul du score de l'image en cours
             score = calcul_score(tags[identifiant], tags[idcourant])
             #Actualisation du score
-            if score > maxi : 
+            if score >= maxi : 
                 maxi = score
                 numero = idcourant
             
