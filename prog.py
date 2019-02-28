@@ -8,4 +8,5 @@ for i in range(nbr) :
     tag = line.split(" ")
     tag[1] = int(tag[1])
     tag[-1] = tag[-1].strip('\n')
-    tags.append(tag)
+    tags.append([i] + tag)
+print(tags[0])
