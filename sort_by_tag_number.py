@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
-tags = [[0, 'H', 3, 'cat', 'beach', 'sun'], [1, 'V', 4, 'selfie', 'smile'], [2, 'V', 5, 'garden', 'selfie'], [3, 'H', 2, 'garden', 'cat']]
-
-def sort_by_tag_number(list_tot):
+def sort_tag(list_tot):
     list_nb_tags = []
     sorted_list_tot = []
     for elem in list_tot:
@@ -18,6 +16,3 @@ def sort_by_tag_number(list_tot):
                 sorted_list_tot += [new_elem]
 
     return sorted_list_tot
-
-
-print sort_by_tag_number(tags)

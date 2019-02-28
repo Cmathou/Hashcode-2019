@@ -1,5 +1,6 @@
-import select.py
-import calcul_score.py
+import select
+import calcul_score
+from sort_by_tag_number import sort_tag
 
 global tags
 tags = []
@@ -12,3 +13,5 @@ for i in range(nbr) :
     tag[1] = int(tag[1])
     tag[-1] = tag[-1].strip('\n')
     tags.append([i] + tag)
+
+tags = sort_tag(tags)
