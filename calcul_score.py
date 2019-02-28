@@ -5,8 +5,8 @@ def calcul_score(lst1, lst2):
 	score1 = 0 #only in 1
 	score2 = 0 #only in 2
 
-	tags1 = lst1[2::]
-	tags2 = lst2[2::]
+	tags1 = lst1[3::]
+	tags2 = lst2[3::]
 
 	for tag in tags1:
 		if tag in tags2:
