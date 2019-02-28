@@ -1,3 +1,6 @@
+import select.py
+import calcul_score.py
+
 global tags
 tags = []
 f = open("a_example.txt", "r")
