@@ -9,4 +9,3 @@ for i in range(nbr) :
     tag[1] = int(tag[1])
     tag[-1] = tag[-1].strip('\n')
     tags.append([i] + tag)
-print(tags[0])
