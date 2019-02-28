@@ -1,6 +1,3 @@
-tags = [ [1,1,1,"Coucou","shy"], [2,1,1,"Hello", "yep", "Bonjour"], [3,1,1,"Bonjour", "Hello", "test"] ]
-slides = []
-
 def calcul_score(lst1, lst2):
     score0 = 0 #common tags
     score1 = 0 #only in 1
@@ -20,8 +17,7 @@ def calcul_score(lst1, lst2):
     return score_final 
     
      
-def SelectImag(identifiant) : 
-    global tags, slides
+def SelectImag(identifiant, tags, slides) :
     taille = len(tags)  #nombre d'image
     maxi = 0            #score maximal
     numero = 0          #numero de l'image avec le score maximal
@@ -51,8 +47,7 @@ def SelectImag(identifiant) :
     return numero
     
 
-def CreaSlide(premiereImage) : 
-    global tags, slides
+def CreaSlide(premiereImage, tags, slides) :
     
     imageSuivante = premiereImage
     
@@ -60,13 +55,7 @@ def CreaSlide(premiereImage) :
         image = tags[imageSuivante]
         identifiant = image[0]
         slides.append(identifiant)
-        imageSuivante = SelectImag(imageSuivante)
-        
-        
-    
- 
-CreaSlide(1)
-print slides
+        imageSuivante = SelectImag(imageSuivante, tags, slides)
 
 
 
