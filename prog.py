@@ -6,7 +6,7 @@ filein = ["a_example.txt", "b_lovely_landscapes.txt", "c_memorable_moments.txt",
 fileout = ["a_example_out.txt", "b_lovely_landscapes_out.txt", "c_memorable_moments_out.txt", "d_pet_pictures_out.txt", "e_shiny_selfies_out.txt"]
 
 part = 1000
-file_nbr = 1
+file_nbr = 0
 tags = []
 tagsV = []
 slides = []
@@ -28,10 +28,13 @@ f = open(fileout[file_nbr], "w")
 f.write(str(int(len(tags)+len(tagsV)/2)) + '\n')
 
 tags = sort_tag(tags)
+tagsV = sort_tag(tagsV)
 tagsize = len(tags)
+tagvsize = len(tagsV)
 
-for  i in range(ceil(tagsize/part)):
-    print(i)
+# sort H img
+for  i in range(int(ceil(1.0*tagsize/part))):
+    print("i = "+str(i))
     slides = []
     if part*(i+1) < tagsize:
         CreaSlide(0, tags[part*i:part*(i+1)], slides)
@@ -42,6 +45,17 @@ for  i in range(ceil(tagsize/part)):
         for e in slides:
             f.write(str(e) + '\n')
 
-for i in range(int(len(tagsV)/2)):
-    f.write(str(tagsV[2*i][0]) + " " + str(tagsV[2*i+1][0]) + '\n')
+#sort V img
+for  i in range(int(ceil(1.0*tagvsize/part))):
+    print("i = "+str(i))
+    slides = []
+    if part*(i+1) < tagvsize:
+        CreaSlide(0, tagsV[part*i:part*(i+1)], slides)
+        for i in range(len(tagsV)//2):
+            f.write(str(tagsV[2*i][0]) + " " + str(tagsV[2*i+1][0]) + '\n')
+    else:
+        CreaSlide(0, tagsV[part*i:], slides)
+        for i in range(len(tagsV)//2):
+            f.write(str(tagsV[2*i][0]) + " " + str(tagsV[2*i+1][0]) + '\n')
+
 f.close()
