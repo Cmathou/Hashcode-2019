@@ -5,7 +5,7 @@ from math import ceil
 filein = ["a_example.txt", "b_lovely_landscapes.txt", "c_memorable_moments.txt", "d_pet_pictures.txt", "e_shiny_selfies.txt"]
 fileout = ["a_example_out.txt", "b_lovely_landscapes_out.txt", "c_memorable_moments_out.txt", "d_pet_pictures_out.txt", "e_shiny_selfies_out.txt"]
 
-part = 100
+part = 1000
 file_nbr = 1
 tags = []
 tagsV = []
